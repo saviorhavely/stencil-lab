@@ -1,0 +1,28 @@
+.todo-list{
+  .card{
+    &-body{
+      min-height: 300px;
+    }
+  }
+
+  .list-group-item{
+    display: flex;
+    justify-content: space-between;
+
+    .actions{
+      border-left: 1px solid rgba(#666, .4);
+      padding-left: 10px;
+
+      button{
+        appearance: none;
+        border: none;
+        background-color: transparent;
+      }
+
+      .btn-close{
+        margin-left: 10px;
+      }
+    }
+  }
+
+}
