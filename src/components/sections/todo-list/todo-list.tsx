@@ -10,6 +10,17 @@ export class TodoList{
   @State() task: string = ""
   @State() tasks: string[] = []
 
+  componentWillLoad()
+  {
+    fetch('https://api.github.com/users/saviorhavely')
+      .then( (response: Response) => {
+        console.log(response)
+      })
+      .then( response => {
+        console.log(response)
+      })
+  }
+
   handleSubmit = ( ev: Event ) => {
     ev.preventDefault()
     if(this.task.trim()){
@@ -25,7 +36,7 @@ export class TodoList{
   }
 
   removeTask = (index: number) => {
-    this.tasks = this.tasks.filter(function(item: string, i: number) {
+    this.tasks = this.tasks.filter( (_item: string, i: number) => {
       return i !== index
     })
   }

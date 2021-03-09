@@ -14,6 +14,12 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface MainFooter {
+    }
+    interface MainHeader {
+    }
+    interface PageBlog {
+    }
     interface TodoList {
     }
 }
@@ -36,6 +42,24 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLMainFooterElement extends Components.MainFooter, HTMLStencilElement {
+    }
+    var HTMLMainFooterElement: {
+        prototype: HTMLMainFooterElement;
+        new (): HTMLMainFooterElement;
+    };
+    interface HTMLMainHeaderElement extends Components.MainHeader, HTMLStencilElement {
+    }
+    var HTMLMainHeaderElement: {
+        prototype: HTMLMainHeaderElement;
+        new (): HTMLMainHeaderElement;
+    };
+    interface HTMLPageBlogElement extends Components.PageBlog, HTMLStencilElement {
+    }
+    var HTMLPageBlogElement: {
+        prototype: HTMLPageBlogElement;
+        new (): HTMLPageBlogElement;
+    };
     interface HTMLTodoListElement extends Components.TodoList, HTMLStencilElement {
     }
     var HTMLTodoListElement: {
@@ -46,6 +70,9 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "main-footer": HTMLMainFooterElement;
+        "main-header": HTMLMainHeaderElement;
+        "page-blog": HTMLPageBlogElement;
         "todo-list": HTMLTodoListElement;
     }
 }
@@ -57,12 +84,21 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface MainFooter {
+    }
+    interface MainHeader {
+    }
+    interface PageBlog {
+    }
     interface TodoList {
     }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "main-footer": MainFooter;
+        "main-header": MainHeader;
+        "page-blog": PageBlog;
         "todo-list": TodoList;
     }
 }
@@ -73,6 +109,9 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "main-footer": LocalJSX.MainFooter & JSXBase.HTMLAttributes<HTMLMainFooterElement>;
+            "main-header": LocalJSX.MainHeader & JSXBase.HTMLAttributes<HTMLMainHeaderElement>;
+            "page-blog": LocalJSX.PageBlog & JSXBase.HTMLAttributes<HTMLPageBlogElement>;
             "todo-list": LocalJSX.TodoList & JSXBase.HTMLAttributes<HTMLTodoListElement>;
         }
     }
