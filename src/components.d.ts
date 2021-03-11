@@ -19,6 +19,7 @@ export namespace Components {
     interface MainHeader {
     }
     interface PageBlog {
+        "baseUrl": string;
     }
     interface TodoList {
     }
@@ -89,6 +90,7 @@ declare namespace LocalJSX {
     interface MainHeader {
     }
     interface PageBlog {
+        "baseUrl"?: string;
     }
     interface TodoList {
     }
