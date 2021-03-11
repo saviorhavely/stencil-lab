@@ -56,6 +56,11 @@ export class PageBlog{
                   <div class="card-body">
                     <h5 class="card-title">{ post.title.rendered }</h5>
                     <div class="card-text" innerHTML={ post.excerpt.rendered } />
+                    <stencil-route-link url={'/blog/' + post.slug}>
+                      <button class="btn read-more">
+                        [ ler mais ]
+                      </button>
+                    </stencil-route-link>
                   </div>
                 </div>
               </div>

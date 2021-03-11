@@ -16,6 +16,7 @@ export class AppRoot{
               <stencil-route url="/" component="app-home" exact={true} />
               <stencil-route url="/todo-list" component="todo-list" exact={true} />
               <stencil-route url="/blog" component="page-blog" exact={true} />
+              <stencil-route url="/blog/:slug" component="single-blog" />
               {/*<stencil-route url="/profile/:name" component="app-profile" />*/}
             </stencil-route-switch>
           </stencil-router>

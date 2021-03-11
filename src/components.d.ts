@@ -21,6 +21,12 @@ export namespace Components {
     interface PageBlog {
         "baseUrl": string;
     }
+    interface SectionLoading {
+    }
+    interface SingleBlog {
+        "baseUrl": string;
+        "match": MatchResults;
+    }
     interface TodoList {
     }
 }
@@ -61,6 +67,18 @@ declare global {
         prototype: HTMLPageBlogElement;
         new (): HTMLPageBlogElement;
     };
+    interface HTMLSectionLoadingElement extends Components.SectionLoading, HTMLStencilElement {
+    }
+    var HTMLSectionLoadingElement: {
+        prototype: HTMLSectionLoadingElement;
+        new (): HTMLSectionLoadingElement;
+    };
+    interface HTMLSingleBlogElement extends Components.SingleBlog, HTMLStencilElement {
+    }
+    var HTMLSingleBlogElement: {
+        prototype: HTMLSingleBlogElement;
+        new (): HTMLSingleBlogElement;
+    };
     interface HTMLTodoListElement extends Components.TodoList, HTMLStencilElement {
     }
     var HTMLTodoListElement: {
@@ -74,6 +92,8 @@ declare global {
         "main-footer": HTMLMainFooterElement;
         "main-header": HTMLMainHeaderElement;
         "page-blog": HTMLPageBlogElement;
+        "section-loading": HTMLSectionLoadingElement;
+        "single-blog": HTMLSingleBlogElement;
         "todo-list": HTMLTodoListElement;
     }
 }
@@ -92,6 +112,12 @@ declare namespace LocalJSX {
     interface PageBlog {
         "baseUrl"?: string;
     }
+    interface SectionLoading {
+    }
+    interface SingleBlog {
+        "baseUrl"?: string;
+        "match"?: MatchResults;
+    }
     interface TodoList {
     }
     interface IntrinsicElements {
@@ -101,6 +127,8 @@ declare namespace LocalJSX {
         "main-footer": MainFooter;
         "main-header": MainHeader;
         "page-blog": PageBlog;
+        "section-loading": SectionLoading;
+        "single-blog": SingleBlog;
         "todo-list": TodoList;
     }
 }
@@ -114,6 +142,8 @@ declare module "@stencil/core" {
             "main-footer": LocalJSX.MainFooter & JSXBase.HTMLAttributes<HTMLMainFooterElement>;
             "main-header": LocalJSX.MainHeader & JSXBase.HTMLAttributes<HTMLMainHeaderElement>;
             "page-blog": LocalJSX.PageBlog & JSXBase.HTMLAttributes<HTMLPageBlogElement>;
+            "section-loading": LocalJSX.SectionLoading & JSXBase.HTMLAttributes<HTMLSectionLoadingElement>;
+            "single-blog": LocalJSX.SingleBlog & JSXBase.HTMLAttributes<HTMLSingleBlogElement>;
             "todo-list": LocalJSX.TodoList & JSXBase.HTMLAttributes<HTMLTodoListElement>;
         }
     }
