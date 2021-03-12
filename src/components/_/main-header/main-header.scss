@@ -1,0 +1,44 @@
+.main-header{
+  background: #645394;
+
+  .logo{
+    max-height: 50px;
+  }
+
+  .collapse{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navbar-nav{
+    padding-right: 50px;
+
+    a{
+      margin-left: 12px;
+    }
+
+    .link-active{
+      .btn{
+        border: 3px solid #ffffff;
+      }
+    }
+
+    .btn{
+      color: #ffffff;
+      font-weight: bold;
+      border-radius: 0;
+      border: 3px solid transparent;
+
+      &:hover{
+        border: 3px solid #ffffff;
+      }
+    }
+
+  }
+
+
+
+  @media screen and (min-width: 1200px) {
+
+  }
+}

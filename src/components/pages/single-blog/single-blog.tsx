@@ -29,9 +29,9 @@ export class SingleBlog{
 
   componentDidLoad()
   {
-    this.getPost().then( res => {
+    this.getPost().then(res => {
       this.post = res[0]
-    } )
+    })
   }
 
   componentWillUpdate()
