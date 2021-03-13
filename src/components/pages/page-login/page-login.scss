@@ -1,0 +1,24 @@
+.page-login{
+
+  .content{
+    min-height: calc(100vh - 133px);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo{
+    display: flex;
+    justify-content: center;
+
+    img{
+      max-width: 200px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .form-login{
+    button{
+      background: #645394;
+    }
+  }
+}

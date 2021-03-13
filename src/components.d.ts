@@ -21,6 +21,8 @@ export namespace Components {
     interface PageBlog {
         "baseUrl": string;
     }
+    interface PageLogin {
+    }
     interface SectionLoading {
     }
     interface SingleBlog {
@@ -67,6 +69,12 @@ declare global {
         prototype: HTMLPageBlogElement;
         new (): HTMLPageBlogElement;
     };
+    interface HTMLPageLoginElement extends Components.PageLogin, HTMLStencilElement {
+    }
+    var HTMLPageLoginElement: {
+        prototype: HTMLPageLoginElement;
+        new (): HTMLPageLoginElement;
+    };
     interface HTMLSectionLoadingElement extends Components.SectionLoading, HTMLStencilElement {
     }
     var HTMLSectionLoadingElement: {
@@ -92,6 +100,7 @@ declare global {
         "main-footer": HTMLMainFooterElement;
         "main-header": HTMLMainHeaderElement;
         "page-blog": HTMLPageBlogElement;
+        "page-login": HTMLPageLoginElement;
         "section-loading": HTMLSectionLoadingElement;
         "single-blog": HTMLSingleBlogElement;
         "todo-list": HTMLTodoListElement;
@@ -112,6 +121,8 @@ declare namespace LocalJSX {
     interface PageBlog {
         "baseUrl"?: string;
     }
+    interface PageLogin {
+    }
     interface SectionLoading {
     }
     interface SingleBlog {
@@ -127,6 +138,7 @@ declare namespace LocalJSX {
         "main-footer": MainFooter;
         "main-header": MainHeader;
         "page-blog": PageBlog;
+        "page-login": PageLogin;
         "section-loading": SectionLoading;
         "single-blog": SingleBlog;
         "todo-list": TodoList;
@@ -142,6 +154,7 @@ declare module "@stencil/core" {
             "main-footer": LocalJSX.MainFooter & JSXBase.HTMLAttributes<HTMLMainFooterElement>;
             "main-header": LocalJSX.MainHeader & JSXBase.HTMLAttributes<HTMLMainHeaderElement>;
             "page-blog": LocalJSX.PageBlog & JSXBase.HTMLAttributes<HTMLPageBlogElement>;
+            "page-login": LocalJSX.PageLogin & JSXBase.HTMLAttributes<HTMLPageLoginElement>;
             "section-loading": LocalJSX.SectionLoading & JSXBase.HTMLAttributes<HTMLSectionLoadingElement>;
             "single-blog": LocalJSX.SingleBlog & JSXBase.HTMLAttributes<HTMLSingleBlogElement>;
             "todo-list": LocalJSX.TodoList & JSXBase.HTMLAttributes<HTMLTodoListElement>;

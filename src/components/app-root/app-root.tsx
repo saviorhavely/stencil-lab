@@ -1,4 +1,5 @@
-import {Component, h, Host} from '@stencil/core';
+import {Component, h, Host, State} from '@stencil/core';
+import {isLogged} from "../../store/auth";
 
 @Component({
   tag: 'app-root',
@@ -6,10 +7,16 @@ import {Component, h, Host} from '@stencil/core';
 })
 
 export class AppRoot{
-  render(){
-    return (
-      <Host>
-        <main-header />
+  @State() loading: boolean = false
+
+  componentWillLoad() {
+    // setInterval(() => state.seconds++, 1000);
+  }
+
+  getContentPage()
+  {
+    if ( isLogged() ){
+      return (
         <main class="main-content">
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
@@ -21,6 +28,17 @@ export class AppRoot{
             </stencil-route-switch>
           </stencil-router>
         </main>
+      )
+    }else {
+        return <page-login />
+    }
+  }
+
+  render(){
+    return (
+      <Host>
+        <main-header />
+        { this.getContentPage() }
         <main-footer />
       </Host>
     )
