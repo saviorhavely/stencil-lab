@@ -1,5 +1,6 @@
 import {Component, h, Host, State} from '@stencil/core';
-import {isLogged} from "../../store/auth";
+import {PrivateRoute} from "./PrivateRoute";
+import {checkAuth} from "../../store/auth";
 
 @Component({
   tag: 'app-root',
@@ -10,35 +11,26 @@ export class AppRoot{
   @State() loading: boolean = false
 
   componentWillLoad() {
-    // setInterval(() => state.seconds++, 1000);
-  }
-
-  getContentPage()
-  {
-    if ( isLogged() ){
-      return (
-        <main class="main-content">
-          <stencil-router>
-            <stencil-route-switch scrollTopOffset={0}>
-              <stencil-route url="/" component="app-home" exact={true} />
-              <stencil-route url="/todo-list" component="todo-list" exact={true} />
-              <stencil-route url="/blog" component="page-blog" exact={true} />
-              <stencil-route url="/blog/:slug" component="single-blog" />
-              {/*<stencil-route url="/profile/:name" component="app-profile" />*/}
-            </stencil-route-switch>
-          </stencil-router>
-        </main>
-      )
-    }else {
-        return <page-login />
-    }
+    checkAuth()
   }
 
   render(){
     return (
       <Host>
         <main-header />
-        { this.getContentPage() }
+        <main class="main-content">
+          <stencil-router>
+            <stencil-route-switch scrollTopOffset={0}>
+              <PrivateRoute url="/" component="app-home" redirectUrl="/login" exact={true} />
+              {/*<stencil-route url="/" component="app-home" exact={true} />*/}
+              <PrivateRoute url="/sobre" component="todo-list" exact={true} />
+              <stencil-route url="/login" component="page-login" exact={true} />
+              <PrivateRoute url="/blog" component="page-blog" exact={true} />
+              <PrivateRoute url="/blog/:slug" component="single-blog" />
+              {/*<stencil-route url="/profile/:name" component="app-profile" />*/}
+            </stencil-route-switch>
+          </stencil-router>
+        </main>
         <main-footer />
       </Host>
     )

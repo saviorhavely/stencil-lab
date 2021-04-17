@@ -1,5 +1,5 @@
 import {h, Component, getAssetPath, State, Element} from "@stencil/core";
-import {authLogin, DataLogin} from "../../../store/user"
+import {authLogin, DataLogin} from "../../../store/auth"
 
 @Component({
   tag: 'page-login',
@@ -9,16 +9,14 @@ import {authLogin, DataLogin} from "../../../store/user"
 export class PageLogin{
   @Element() element: HTMLElement;
   @State() loginData: DataLogin = {
-    email: '',
+    username: '',
     password: ''
   };
 
   handlerSubmit(e)
   {
     e.preventDefault()
-
     authLogin(this.loginData)
-
   }
 
   handleChange(ev: Event, loginData) {
@@ -43,8 +41,8 @@ export class PageLogin{
                     class="form-control"
                     placeholder="Email"
                     id="email"
-                    value={this.loginData.email}
-                    onInput={(e) => this.handleChange(e, 'email')}
+                    value={this.loginData.username}
+                    onInput={(e) => this.handleChange(e, 'username')}
                   />
                 </div>
                 <div class="mb-3">

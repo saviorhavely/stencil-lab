@@ -1,4 +1,6 @@
 import {h, Component, getAssetPath} from "@stencil/core";
+import state from "../../../store";
+import {clearAuthentication} from "../../../store/auth";
 
 @Component({
   tag: 'main-header',
@@ -54,7 +56,16 @@ export class MainHeader{
 
               </ul>
 
-              <button type="button" class="btn btn-success ml-md-3" data-toggle="modal" data-target="#modalLogin">Entrar</button>
+              { state.auth.token ?
+                <button class="btn btn-success" onClick={ () => clearAuthentication() }>
+                  Sair
+                </button>
+                :
+                <stencil-route-link url={'/login'}>
+                  <button class="btn btn-success">
+                    Entrar
+                  </button>
+                </stencil-route-link> }
 
             </div>
 
